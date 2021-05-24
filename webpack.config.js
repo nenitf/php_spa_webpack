@@ -33,11 +33,5 @@ module.exports = {
       pathPrefix: "/public/bundles/"
     }),
   ],
-  resolve: {
-    alias: {
-      vue$: "vue/dist/vue.runtime.esm.js",
-    },
-    extensions: ["*", ".js", ".vue", ".json"],
-  },
   stats: 'minimal',
 };
