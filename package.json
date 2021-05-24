@@ -1,0 +1,27 @@
+{
+  "name": "php_vue_webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "babel-loader": "^8.2.2",
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-manifest-plugin": "^3.1.1",
+    "webpack-php-manifest": "0.0.8"
+  },
+  "scripts": {
+    "start": "webpack --watch --progress --mode development",
+    "build": "webpack --progress --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
