@@ -15,5 +15,5 @@
     "start": "webpack --watch --progress --mode development",
     "build": "webpack --progress --mode production"
   },
-  "license": "UNLICENSE"
+  "license": "UNLICENSED"
 }
