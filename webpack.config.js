@@ -1,5 +1,4 @@
 const { VueLoaderPlugin } = require("vue-loader");
-// const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const PhpManifestPlugin = require('webpack-php-manifest');
 const path = require("path");
 
@@ -12,7 +11,6 @@ module.exports = {
     path: path.resolve(__dirname, "public", "bundles"),
     filename: '[name].[chunkhash].js',
     clean: true,
-    publicPath: "/public/bundles/", // seta no manifest
   },
   module: {
     rules: [
@@ -31,7 +29,6 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    // new WebpackManifestPlugin(),
     new PhpManifestPlugin({
       pathPrefix: "/public/bundles/"
     }),
