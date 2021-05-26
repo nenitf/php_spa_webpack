@@ -35,6 +35,8 @@ npm run build
 1. Modifique o conteúdo entre `<div></div>` do arquivo `resources/js/home/App.vue` ou `resources/js/profissionais/App.vue`
 1. Recarregue a página e veja a modificação
 
+> bônus: em `localhost:8888/rota` e `localhost:8888/rota/profissionais.php` é implementado o router
+
 ## O que usar desse projeto
 
 - Copie `package.json` por inteiro

@@ -10,6 +10,7 @@ module.exports = (env, options) => {
     entry: {
       profissionaisApp: "./resources/js/profissionais/main.js",
       homeApp: "./resources/js/home/main.js",
+      rotaApp: "./resources/js/rota/main.js",
     },
     output: {
       path: path.resolve(__dirname, "public", "bundles"),
