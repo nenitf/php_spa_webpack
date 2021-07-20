@@ -16,5 +16,8 @@
     "start": "webpack --watch --progress --mode development",
     "build": "webpack --progress --mode production"
   },
+  "engines": {
+    "yarn": "please-use-npm"
+  },
   "license": "UNLICENSED"
 }
