@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Profissionais2
-  </div>
+  <strong>Home App Vue</strong>
 </template>
 
 <script>

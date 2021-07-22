@@ -1,4 +1,3 @@
-const { VueLoaderPlugin } = require("vue-loader");
 const PhpManifestPlugin = require('webpack-php-manifest');
 const path = require("path");
 
@@ -8,7 +7,6 @@ module.exports = (env, options) => {
     mode: isDevelopment ? 'development' : 'production',
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
     entry: {
-      profissionaisApp: "./resources/js/profissionais/main.js",
       homeApp: "./resources/js/home/main.js",
       rotaApp: "./resources/js/rota/main.js",
     },
@@ -17,23 +15,16 @@ module.exports = (env, options) => {
       filename: '[name].[chunkhash].js',
       clean: true,
     },
-    module: {
+    module:  {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.jsx?$/,
           exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-          },
+          loader: 'babel-loader',
         },
-        {
-          test: /\.vue$/,
-          loader: "vue-loader",
-        },
-      ],
+      ]
     },
     plugins: [
-      new VueLoaderPlugin(),
       new PhpManifestPlugin({
         pathPrefix: "/public/bundles/"
       }),

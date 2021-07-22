@@ -1,8 +1,4 @@
-<?php
-require 'app.php';
-
-echo "Está no index";
-?>
+<?php require 'bootstrap.php'; ?>
 
 <div id="app"></div>
 

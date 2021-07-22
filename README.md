@@ -1,41 +1,18 @@
-# php_vue_webpack
+# poc_php_spa_webpack
 
-Estudo da implementação do [vue](https://vuejs.org/) em páginas php.
-
-## Setup
-
-```sh
-npm i
-```
-
-## Run for development
-
-- Com dois terminais abertos:
-
-```sh
-php -S localhost:8888
-
-npm start
-```
-
-## Build for production
-
-```sh
-npm run build
-```
+Estudo da implementação de uma SPA em páginas PHP.
 
 ## Estudo guiado
 
-1. Clone o projeto ``git clone git@github.com:nenitf/php_vue_webpack.git``
-1. Acesse a pasta criada ``cd php_vue_webpack``
+1. Clone o projeto ``git clone git@github.com:nenitf/poc_php_spa_webpack.git``
+1. Acesse a pasta criada ``cd poc_php_spa_webpack``
+1. Acesse o projeto pretendido ``cd app_???``
 1. Instale as dependências de javascript ``npm i``
-1. Inicie o servidor php ``php -S localhost:8888``
+1. Inicie o servidor ``php -S localhost:8888``
 1. Em outro terminal, inicie o ambiente de desenvolvimento frontend ``npm start``
-1. Acesse `localhost:8888` ou `localhost:8888/profissionais.php`
-1. Modifique o conteúdo entre `<div></div>` do arquivo `resources/js/home/App.vue` ou `resources/js/profissionais/App.vue`
+1. Acesse `localhost:8888` ou `localhost:8888/router`
+1. Modifique os arquivos dentro de `resources/js`
 1. Recarregue a página e veja a modificação
-
-> bônus: em `localhost:8888/rota` e `localhost:8888/rota/profissionais.php` é implementado o router
 
 ## O que usar desse projeto
 
@@ -43,22 +20,25 @@ npm run build
 - Copie `webpack.config.js` e mude os arquivos lidos em `entry` conforme sua necessidade
     - Caso queira, mude a convenção do *output*, cujo salva como `public/bundles/[entryName].[hashBuild].js`
 - Copie o `.gitignore` cujo não versiona os *outputs*
-- Crie uma estratégia de chamar os *outputs*, como feito em `assetJs()` no arquivo `app.php`
+- Crie uma estratégia de chamar os *outputs*, como feito em `assetJs()` no arquivo `bootstrap.php`
     - ``<script src="<?=assetJs('homeApp')?>"></script>``
 
 ## Explicações
 
-> TL;DR: A cada save ou no build final o webpack: 1) interpreta cada *entrypoint* especificado e converte para um *output* com *hash*; 2) Cria uma classe php que conhece o nome dos arquivos sem o *hash*. Ao final o php importa cada script usando a classe gerada.
+1) *Resources* são transpilados para javascript que o browser entenda (com `npm start` ou `npm run build`)
+    > Interpreta cada *entrypoint* especificado e converte para um *output* com *hash*
+2) Após a transpilação, é criada a classe `WebpackBuiltFiles` em `assets-manifest.php` que conhece o nome dos arquivos sem o *hash*
+3) Quando for feita uma requisição, `index.php` importa o arquivo javascript pelo nome sem o *hash*, cujo é traduzido pela classe `WebpackBuiltFiles`
 
 ## Conclusões
 
 - PROS:
     - Processo de build de assets permite transpilação para compatibilidade de browsers e minificação
-    - Utilização do vue, cujo facilita a manutenção de grandes páginas com muita interação
+    - Utilização de spa, cujo facilita a manutenção de grandes páginas com muita interação
     - Resolve o [problema](https://www.keycdn.com/support/what-is-cache-busting) de quando e como atualizar o cache do browser: atualizando os nomes dos arquivos com novos hashes a cada *build*
 
 - CONS:
-    - Adiciona um processo a mais de build no deploy, juntamente com suas dependências (node, npm, vue, webpack e plugins)
+    - Adiciona um processo a mais de build no deploy, juntamente com suas dependências (node, npm, webpack e plugins)
 
 ## Thanks
 
