@@ -44,3 +44,4 @@ Estudo da implementação de uma SPA em páginas PHP.
 
 - [Webpack workflow](https://stackoverflow.com/a/43476629/9881278)
 - [Assets management](https://stackoverflow.com/a/57810590/9881278)
+- [React + Typescript + Webpack](https://www.carlrippon.com/creating-react-and-typescript-apps-with-webpack/)
